@@ -3,5 +3,6 @@
   console.log(houseElem);
   window.addEventListener('scroll', function () {
     console.log(pageYOffset);
+    
   });
 })();
