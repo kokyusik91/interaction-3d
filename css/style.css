@@ -1,4 +1,5 @@
 /* animation */
+/* 머리 흔들리는 애니메이션 */
 @keyframes ani-head {
     to { transform: rotateX(-10deg); }
 }
@@ -100,25 +101,30 @@ body[data-char='ragirl'] {
     background: #00a8ff;
 }
 
-/* character */
-.character {
+/* character 전체 컨테이너 */
+.character { 
     position: absolute;
     left: 12%;
     bottom: 5%;
     width: 10vw;
     height: 15.58vw;
+    /* 실제로 3d 효과를 받기 위해서 */
     transform-style: preserve-3d;
 }
+/* 속성 선택자 ex) data-direction이 foward면. */
 .character[data-direction='forward'] { transform: rotateY(180deg); }
 .character[data-direction='backward'] { transform: rotateY(0deg); }
 .character[data-direction='left'] { transform: rotateY(-90deg); }
 .character[data-direction='right'] { transform: rotateY(90deg); }
+/* 각부위별 컨테이너 : 몸, 머리, 다리, 팔, */
 .character-face-con {
+  /* 각 부위를 컨테이너 기준으로 위치 시키기 위해 absolute */
     position: absolute;
     transform-style: preserve-3d;
     transition: 1s;
 }
 .character-face {
+  /* 머리 앞면 뒷면을 배치하기 위해 absolute */
     position: absolute;
     left: 0;
     top: 0;
@@ -128,11 +134,13 @@ body[data-char='ragirl'] {
     background-position: 0 0;
     background-size: cover;
     -webkit-backface-visibility: hidden;
+    /* 뒤집힌 상태에서 각각 뒷면 보이게 안보이게 */
     backface-visibility: hidden;
 }
 .character-face.face-back {
     transform: rotateY(180deg);
 }
+/* 캐릭터 머리 */
 .character-head {
     left: calc(42 / 856 * 100%);
     top: 0;
