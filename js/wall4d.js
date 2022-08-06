@@ -33,4 +33,12 @@
     stageElem.style.transform = `rotateX(${mousePos.y * 5}deg) rotateY(${mousePos.x * 5}deg)`
 });
 
+  stageElem,addEventListener('click', function(e){
+    
+    new Character({
+      xPos : (e.clientX / window.innerWidth) * 100
+    });
+
+  })
+
 })();
