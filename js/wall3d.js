@@ -26,7 +26,7 @@
     });
 
     window.addEventListener('resize', resizeHandler);
-
+    // d
     stageElem.addEventListener('click', function (e) {
         new Character({
             xPos: e.clientX / window.innerWidth * 100,
